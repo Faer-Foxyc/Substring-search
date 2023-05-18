@@ -17,7 +17,7 @@ void StartProgram()
         string SubString = ReturnASubString();
 
         Searcher searcher = new Searcher(EneteredString, SubString);
-        bool answer = searcher.ReturnAString();
+        bool answer = searcher.IsSubstringPresent();
 
         if (answer != false)
         {

@@ -62,7 +62,7 @@ namespace Substring_search.Classes
         /// найти подстоку
         /// </summary>
         /// <returns></returns>
-        public bool ReturnAString()
+        public bool IsSubstringPresent()
         {
             if (string.IsNullOrWhiteSpace(enteredString) || string.IsNullOrEmpty(subString))
             {
