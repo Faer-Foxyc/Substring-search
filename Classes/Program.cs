@@ -17,9 +17,9 @@ void StartProgram()
         string SubString = ReturnASubString();
 
         Searcher searcher = new Searcher(EneteredString, SubString);
-        string answer = searcher.ReturnAString();
+        bool answer = searcher.ReturnAString();
 
-        if (answer != "False")
+        if (answer != false)
         {
             Console.WriteLine($"\nВ строке: {EneteredString}, присутствует подстрока: {SubString}");
         }
@@ -64,16 +64,16 @@ static string ReturnASubString()
     while (true)
     {
         Searcher searcher = new Searcher();
-        string isString = searcher.CheckString(_subString);
+        bool isString = searcher.CheckString(_subString);
 
         // проверяем на null или пустую строку
         if (string.IsNullOrEmpty(_subString))
         {
-            Console.Write("\nСтрока не может быть пустой!\nВведите строку: ");
+            Console.Write("\nСтрока не может быть пустой!\n\nВведите строку: ");
             _subString = Console.ReadLine();
         }
         // проверяем на null, пробелы и неявляется ли строка числом
-        else if (string.IsNullOrWhiteSpace(_subString) || isString == false.ToString())
+        else if (string.IsNullOrWhiteSpace(_subString) || isString == false)
         {
             Console.WriteLine("\nВведенное значение не является строкой");
             Console.Write("\nВведите строку для поиска: ");
@@ -98,14 +98,14 @@ static string ReturnAString()
     while (true)
     {
         Searcher searcher = new Searcher();
-        string isString = searcher.CheckString(_enteredString);
+        bool isString = searcher.CheckString(_enteredString);
 
         if (string.IsNullOrEmpty(_enteredString))
         {
-            Console.Write("\nСтрока не может быть пустой!\nВведите строку: ");
+            Console.Write("\nСтрока не может быть пустой!\n\nВведите строку: ");
             _enteredString = Console.ReadLine();
         }
-        else if (string.IsNullOrWhiteSpace(_enteredString) || isString == false.ToString())
+        else if (string.IsNullOrWhiteSpace(_enteredString) || isString == false)
         {
             Console.WriteLine("Введенное значение не является строкой");
             Console.Write("\nВведите строку: ");

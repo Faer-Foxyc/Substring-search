@@ -13,10 +13,21 @@ namespace Substring_search.Classes
         /// </summary>
         /// <param name="_eneteredString">строка в которой выполняется поиск</param>
         /// <param name="_substring">строка которую нужно найти</param>
-        public Searcher(string _eneteredString, string _substring) 
+        public Searcher(string _enteredString, string _subString)
         {
-            enteredString = _eneteredString;
-            subString = _substring;
+            try
+            {
+                if (enteredString != null || subString != null)
+                {
+                    throw new ArgumentNullException("Строки не могут быть null");
+                }
+                this.enteredString = _enteredString;
+                this.subString = _subString;
+            }
+            catch (ArgumentNullException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
         /// <summary>
         /// Конструктор класса без параметров
@@ -28,7 +39,7 @@ namespace Substring_search.Classes
         /// </summary>
         /// <param name="_userInput">входная строка</param>
         /// <returns></returns>
-        public string CheckString(string _userInput)
+        public bool CheckString(string _userInput)
         {
             int intValue;
             double doubleValue;
@@ -37,34 +48,34 @@ namespace Substring_search.Classes
             if (int.TryParse(_userInput, out intValue))
             {
                 isString = false;
-                return isString.ToString();
+                return isString;
             }
             else if (double.TryParse(_userInput, out doubleValue))
             {
                 isString = false;
-                return isString.ToString();
+                return isString;
             }
-            return isString.ToString();
+            return isString;
         }
 
         /// <summary>
         /// найти подстоку
         /// </summary>
         /// <returns></returns>
-        public string ReturnAString()
+        public bool ReturnAString()
         {
             if (string.IsNullOrWhiteSpace(enteredString) || string.IsNullOrEmpty(subString))
             {
-                return false.ToString();
+                return false;
             }
             else
             {
                 int index = enteredString.IndexOf(subString);
                 if (index == -1)
                 {
-                    return false.ToString();
+                    return false;
                 }
-                return true.ToString();
+                return true;
             }
         }
         /// <summary>
